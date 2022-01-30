@@ -1,11 +1,12 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Database from '@ioc:Adonis/Lucid/Database'
 import Cliente from 'App/Models/Cliente'
 import { CreateValidator } from 'App/Validators/Cliente'
 
 export default class ClientesController {
   public async index({ response }: HttpContextContract) {
-    const res = await Cliente.query().orderBy('id', 'desc')
-    //const res = await Database.from('teste')
+    //const res = await Cliente.query().orderBy('id', 'desc')
+    const res = await Database.from('teste')
 
     return response.ok(res)
   }
